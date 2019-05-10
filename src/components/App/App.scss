@@ -1,7 +1,11 @@
 .App {
   text-align: center;
+  background-color: rgb(80, 80, 80);
   a {
     color: inherit;
     text-decoration: none;
+  }
+  button:hover {
+    cursor: pointer;
   }
 }

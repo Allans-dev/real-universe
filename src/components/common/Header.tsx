@@ -9,16 +9,17 @@ const Header: React.FC = () => {
   const handleLogIn = () => {};
 
   return (
-    <section>
-      <a href="placeholder-home">realuniverse.com</a>
-      <div>
+    <section className="header">
+      <a className="home-icon" href="placeholder-home">realuniverse.com</a>
+      <div className="header-tabs">
         <a href="placeholder-buy">buy</a>
         <a href="placeholder-rent">rent</a>
         <a href="placeholder-sold">sold</a>
+        <a href="placeholder-time-share">time share</a>
         <a href="placeholder-invest">invest</a>
+        <button onClick={handleSignUp}>Sign Up</button>
+        <button onClick={handleLogIn}>Log In</button>
       </div>
-      <button onClick={handleSignUp}>Sign Up</button>
-      <button onClick={handleLogIn}>Log In</button>
     </section>
   );
 }
