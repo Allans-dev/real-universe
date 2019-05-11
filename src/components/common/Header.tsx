@@ -10,8 +10,8 @@ const Header: React.FC = () => {
 
   return (
     <section className="header">
-      <a className="home-icon" href="placeholder-home">realuniverse.com</a>
-      <div className="header-tabs">
+      <a className="home__icon" href="placeholder-home">realuniverse.com</a>
+      <div className="header__tabs">
         <a href="placeholder-buy">buy</a>
         <a href="placeholder-rent">rent</a>
         <a href="placeholder-sold">sold</a>

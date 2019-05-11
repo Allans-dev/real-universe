@@ -1,10 +1,17 @@
 import * as React from 'react';
 
-export default class SearchBar extends React.Component<{}> {
+import './search-bar.style.scss';
+
+type searchState = {
+  value: string;
+}
+
+export default class SearchBar extends React.Component<{}, searchState> {
   constructor(props: {}){
     super(props);
+
     this.state = {value: ''};
-    
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -19,9 +26,14 @@ export default class SearchBar extends React.Component<{}> {
 
   render() {
     return (
-      <form>
-        <label>Distance</label>
-        <input onChange={this.handleChange}></input>
+      <form className="landing-form">
+        <label>Search</label>
+        <input 
+          className="landing-form__search-bar"
+          onChange={this.handleChange} 
+          placeholder="Find your planet" 
+          value={this.state.value}>
+        </input>
       </form>
     );
   }
