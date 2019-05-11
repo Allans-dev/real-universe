@@ -26,15 +26,17 @@ export default class SearchBar extends React.Component<{}, searchState> {
 
   render() {
     return (
-      <form className="landing-form">
-        <label>Search</label>
-        <input 
-          className="landing-form__search-bar"
-          onChange={this.handleChange} 
-          placeholder="Find your planet" 
-          value={this.state.value}>
-        </input>
-      </form>
+      <section className="search">
+        <form className="search__form">
+          <label>Search</label>
+          <input 
+            className="search__bar"
+            onChange={this.handleChange} 
+            placeholder="Find your planet" 
+            value={this.state.value}>
+          </input>
+        </form>
+      </section>
     );
   }
 }
