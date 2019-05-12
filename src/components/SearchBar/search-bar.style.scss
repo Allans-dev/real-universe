@@ -1,5 +1,43 @@
-.search__form {
-  label {
-    color: #eee;
+.search {
+  background-color: #eee;
+  opacity: 0.5;
+  margin: 2em auto 0;
+  width: 30em;
+  padding: .8em;
+  font-size: 1.5em;
+
+  .search__form{
+    .search__labels {
+      display: block;
+      margin-left: 1em;
+      
+      label {
+        background-color: rgb(110, 110, 110);
+        color: #eee;
+        padding: .1em 0.8em;
+      }
+
+      label:hover {
+        cursor: pointer;
+        background-color: rgb(143, 143, 143);
+      }
+      
+    }
+    .search__bar {
+      margin-left: 1em;
+      font-size: 1em;
+      height: 1.2em;
+      width: 25em;
+    }
+    .search__btn {
+      border: none;
+      font-size: 1em;
+      width: 3.5em;
+      height: 1.4em;
+      font-size: 1em;
+      color: #eee;
+      background-color: rgb(110, 110, 110);
+    }
   }
+  
 }
