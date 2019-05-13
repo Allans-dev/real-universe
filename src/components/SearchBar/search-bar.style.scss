@@ -21,8 +21,12 @@
         cursor: pointer;
         background-color: rgb(143, 143, 143);
       }
-      
     }
+
+    .active {
+      background-color: rgb(49, 49, 49) !important;
+    }
+
     .search__bar {
       margin-left: 1em;
       font-size: 1em;

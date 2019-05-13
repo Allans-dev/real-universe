@@ -4,7 +4,8 @@ import './search-bar.style.scss';
 
 type searchState = {
   value: string,
-  searchType: string
+  searchType: string,
+  tabClassName: string
 }
 
 const buy: string = 'buy';
@@ -21,45 +22,35 @@ export default class SearchBar extends React.Component<{}, searchState> {
 
     this.state = {
       value: '',
-      searchType: buy
+      searchType: buy,
+      tabClassName: ''
       };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (e: React.ChangeEvent<HTMLInputElement>) : void => {
+  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({value: e.target.value});
   }
 
-  handleSubmit = (e: React.FormEvent<HTMLInputElement>) : void => {
+  handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
   }
 
-  handleTabClick = (e: React.ChangeEvent<HTMLInputElement>) : void => {
-
-  }
-
-  handleLabelClass = (state: string) => {
-    switch(state) {
-      case 'buy':
-        return 'search__buy';
-      case 'rent':
-        return 'search__rent';
-      case 'sold':
-        return 'search__sold';
-      case 'time share':
-        return 'search__time-share';
-      case 'invest':
-        return 'search__invest';
-      default:
-       return 'search__buy';
-    }
+  handleTabClick = (searchState: string, item: string) => {
+    this.setState({ searchType: item });
+    this.setState({ tabClassName: 'active' })
   }
 
   displayLabels = () => {
     return searchTypeArr.map((item, index, arr)=> {
-      return <label className={this.handleLabelClass(this.state.searchType)} htmlFor="search__bar">
+      return <label 
+        key={index}
+        className={item === this.state.searchType ? this.state.tabClassName : ''}
+        htmlFor="search__bar"
+        onClick={this.handleTabClick.bind(this, this.state.searchType, item)}
+      >
         {item}
       </label>
     });
