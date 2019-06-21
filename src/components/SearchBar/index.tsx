@@ -1,12 +1,23 @@
 import * as React from 'react';
+import Select from 'react-select';
+
+import SearchParams from './searchParams';
+import { planetNames } from './searchUtils';
+import planets from '../../assets/planetData.json';
 
 import './search-bar.style.scss';
 
-type searchState = {
+export interface searchState {
   value: string,
   searchType: string,
-  tabClassName: string
+  tabClassName: string,
+  data: object,
+  selectedOption: any
 }
+
+const options = planetNames(planets).map((item) => {
+  return {value: item, label: item}
+});
 
 const buy: string = 'buy';
 const rent: string = 'rent';
@@ -23,15 +34,23 @@ export default class SearchBar extends React.Component<{}, searchState> {
     this.state = {
       value: '',
       searchType: buy,
-      tabClassName: ''
+      tabClassName: '',
+      data: planets,
+      selectedOption: null
       };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({value: e.target.value});
+  componentDidMount(){
+    const names = planetNames(planets);
+    console.log(names)
+  }
+
+  handleChange = (selectedOption: any) => {
+    this.setState({ selectedOption });
+    console.log(`Option selected:`, selectedOption);
   }
 
   handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
@@ -44,12 +63,13 @@ export default class SearchBar extends React.Component<{}, searchState> {
   }
 
   displayLabels = () => {
+    const { searchType, tabClassName } = this.state;
     return searchTypeArr.map((item, index, arr)=> {
       return <label 
         key={index}
-        className={item === this.state.searchType ? this.state.tabClassName : ''}
+        className={item === searchType ? tabClassName : ''}
         htmlFor="search__bar"
-        onClick={this.handleTabClick.bind(this, this.state.searchType, item)}
+        onClick={this.handleTabClick.bind(this, searchType, item)}
       >
         {item}
       </label>
@@ -57,18 +77,20 @@ export default class SearchBar extends React.Component<{}, searchState> {
   };
 
   render() {
+    const { selectedOption, searchType } = this.state;
     return (
       <section className="search">
         <form className="search__form">
           <div className="search__labels">
             {this.displayLabels()}
           </div>
-          <input 
+          <Select
             id="search__bar"
             className="search__bar"
-            onChange={this.handleChange} 
-            placeholder="Find your planet" 
-            value={this.state.value}
+            value={selectedOption}
+            onChange={this.handleChange}
+            options={options}
+            placeholder="find your planet..."
           />
           <input 
             className="search__btn"
@@ -76,6 +98,7 @@ export default class SearchBar extends React.Component<{}, searchState> {
             value="Search"
           />
         </form>
+        <SearchParams searchType={searchType}/>
       </section>
     );
   }

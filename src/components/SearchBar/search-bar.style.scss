@@ -28,12 +28,17 @@
     }
 
     .search__bar {
+      display: inline-block;
       margin-left: 1em;
       font-size: 1em;
       height: 1.2em;
-      width: 25em;
+      min-width: 25em;
     }
     .search__btn {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      text-align: center;
       border: none;
       font-size: 1em;
       width: 3.5em;
