@@ -9,25 +9,25 @@ export function api(url: string) {
 }
 
 export function planetNames(data: object) {
-  var planetNames: string[];
-  if (!data) {
-    planetNames = ["No data found, please try again"]
-  } else {
-    planetNames = ((data: object) => {
-      let arr: string[] = [];
-      let name: string = 'Earth';
-      for (name in data) {
-        if (!name || !data) {
-          throw Error ('No names found');
-        }
-        arr.push(name);
-      }
-      return arr;
-    })(data);
-    if (!planetNames) {
-      throw Error('No planet names found, please try again')
-    } 
+  let arr = [];
+  for (let name of Object.keys(data)) {
+    arr.push(name);
   }
-  return planetNames.filter((item, index) => index > 1 ? item : null);
+  return arr.filter((item, index) => index > 1 ? item : null);
 };
 
+export function planetAttrList(data: any) {
+  let arr = [];
+  for (let atr of Object.entries(data.Attributes)) {
+    arr.push(atr[1]);
+  }
+  return arr;
+}
+
+export function planetUnitsList(data: any) {
+  let arr = [];
+  for (let units of Object.entries(data.Units)) {
+    arr.push(units[1]);
+  }
+  return arr;
+}

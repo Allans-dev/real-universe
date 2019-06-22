@@ -2,7 +2,7 @@ import * as React from 'react';
 import Select from 'react-select';
 
 import SearchParams from './searchParams';
-import { planetNames } from './searchUtils';
+import { planetNames, planetAttrList } from './searchUtils';
 import planets from '../../assets/planetData.json';
 
 import './search-bar.style.scss';
@@ -45,7 +45,9 @@ export default class SearchBar extends React.Component<{}, searchState> {
 
   componentDidMount(){
     const names = planetNames(planets);
+    const atr = planetAttrList(planets);
     console.log(names)
+    console.log(atr)
   }
 
   handleChange = (selectedOption: any) => {
