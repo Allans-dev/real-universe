@@ -7,12 +7,17 @@ import planets from '../../assets/planetData.json';
 
 import './search-bar.style.scss';
 
-export interface searchState {
+interface searchState {
   value: string,
   searchType: string,
   tabClassName: string,
   data: object,
-  selectedOption: any
+  selectedOption: any,
+}
+
+interface searchProps {
+  show: any,
+  hide: any,
 }
 
 const options = planetNames(planets).map((item) => {
@@ -27,8 +32,8 @@ const invest: string = 'invest';
 
 const searchTypeArr: string[] = [buy, rent, sold, timeShare, invest];
 
-export default class SearchBar extends React.Component<{}, searchState> {
-  constructor(props: {}){
+export default class SearchBar extends React.Component<searchProps, searchState> {
+  constructor(props: any){
     super(props);
 
     this.state = {
@@ -55,8 +60,10 @@ export default class SearchBar extends React.Component<{}, searchState> {
     console.log(`Option selected:`, selectedOption);
   }
 
-  handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
+  handleSubmit = async ( e: React.FormEvent<HTMLFormElement> ): Promise<void> => {
     e.preventDefault();
+    const { show } = this.props;
+    show();
   }
 
   handleTabClick = (searchState: string, item: string) => {
@@ -82,7 +89,7 @@ export default class SearchBar extends React.Component<{}, searchState> {
     const { selectedOption, searchType } = this.state;
     return (
       <section className="search">
-        <form className="search__form">
+        <form className="search__form" onSubmit={this.handleSubmit}>
           <div className="search__labels">
             {this.displayLabels()}
           </div>
