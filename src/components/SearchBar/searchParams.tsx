@@ -24,18 +24,19 @@ import * as React from 'react';
 // }
 
 type ParamsProps = {
-  searchType: string
+  searchType: string,
+  params: string[],
 }
 
 export default class SearchParams extends React.Component<ParamsProps> {
-  componentDidMount() {
-    // console.log(typeof(this.props.searchType));
-  }
 
   render(){
-    const { searchType } = this.props;
+    const { searchType, params } = this.props;
     return (
-      <div>{searchType}</div>
+      <div>
+      {searchType}
+      {params}
+      </div>
     );
   }
   

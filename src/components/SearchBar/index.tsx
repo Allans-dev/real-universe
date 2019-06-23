@@ -2,7 +2,7 @@ import * as React from 'react';
 import Select from 'react-select';
 
 import SearchParams from './searchParams';
-import { planetNames, planetAttrList } from './searchUtils';
+import { planetNames } from './searchUtils';
 import planets from '../../assets/planetData.json';
 
 import './search-bar.style.scss';
@@ -18,10 +18,13 @@ interface searchState {
 interface searchProps {
   show: any,
   hide: any,
+  changeSearchState: any,
+  changeParams: any,
+  params: string[],
 }
 
 const options = planetNames(planets).map((item) => {
-  return {value: item, label: item}
+  return {value: item, label: item};
 });
 
 const buy: string = 'buy';
@@ -33,7 +36,7 @@ const invest: string = 'invest';
 const searchTypeArr: string[] = [buy, rent, sold, timeShare, invest];
 
 export default class SearchBar extends React.Component<searchProps, searchState> {
-  constructor(props: any){
+  constructor(props: searchProps){
     super(props);
 
     this.state = {
@@ -49,10 +52,10 @@ export default class SearchBar extends React.Component<searchProps, searchState>
   }
 
   componentDidMount(){
-    const names = planetNames(planets);
-    const atr = planetAttrList(planets);
-    console.log(names)
-    console.log(atr)
+    // const names = planetNames(planets);
+    // const atr = planetAttrList(planets);
+    // console.log(names)
+    // console.log(atr)
   }
 
   handleChange = (selectedOption: any) => {
@@ -62,11 +65,16 @@ export default class SearchBar extends React.Component<searchProps, searchState>
 
   handleSubmit = async ( e: React.FormEvent<HTMLFormElement> ): Promise<void> => {
     e.preventDefault();
-    const { show } = this.props;
+    const { show, changeSearchState } = this.props;
+    const { searchType } = this.state;
+    changeSearchState(searchType);
     show();
   }
 
   handleTabClick = (searchState: string, item: string) => {
+    const { changeSearchState, changeParams } = this.props;
+    changeSearchState(item);
+    changeParams(item);
     this.setState({ searchType: item });
     this.setState({ tabClassName: 'active' })
   }
@@ -87,6 +95,8 @@ export default class SearchBar extends React.Component<searchProps, searchState>
 
   render() {
     const { selectedOption, searchType } = this.state;
+    const { params } = this.props;
+
     return (
       <section className="search">
         <form className="search__form" onSubmit={this.handleSubmit}>
@@ -107,7 +117,7 @@ export default class SearchBar extends React.Component<searchProps, searchState>
             value="Search"
           />
         </form>
-        <SearchParams searchType={searchType}/>
+        <SearchParams searchType={searchType} params={params}/>
       </section>
     );
   }

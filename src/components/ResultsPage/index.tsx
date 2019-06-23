@@ -3,10 +3,11 @@ import * as React from 'react';
 import './results-page.style.scss';
 
 interface resultsProps {
-  resultsProps: boolean
+  resultsProps: boolean,
+  searchState: string,
 }
 
-class ResultsPage extends React.Component<{ resultsProps: boolean }> {
+class ResultsPage extends React.Component<resultsProps, any> {
   render() {
     console.log(this.props);
     const { resultsProps } = this.props;
