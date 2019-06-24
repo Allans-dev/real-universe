@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import SearchBar from '../SearchBar';
 import ResultsPage from '../ResultsPage';
-import { planetAttrList } from '../common/Utils';
+import { planetAttrList, planetUnitsList } from '../common/Utils';
 import planets from '../../assets/planetData.json';
 
 
@@ -14,6 +14,7 @@ interface landingState {
   params: any,
   planet: string,
   paramsKey: any,
+  units: any,
 }
 
 class LandingPage extends React.Component<{}, landingState> {
@@ -32,6 +33,7 @@ class LandingPage extends React.Component<{}, landingState> {
     params: ['Mean distance from the Sun', 'Equatorial radius', 'Surface area', 'Volume'],
     planet: 'Earth',
     paramsKey: ['C', 'D', 'E', 'F'],
+    units: ['km', 'km', 'km2', 'km3'],
   }
 
   setPlanet(val: any){
@@ -60,38 +62,41 @@ class LandingPage extends React.Component<{}, landingState> {
     switch(val) {
       case buy: 
         let buyAttr = planetAttrList(planets).filter((item,index) => index < 4);
-        this.setState({ paramsKey: ['C', 'D', 'E', 'F'] })
-        this.setState({ params: buyAttr });
+        let buyUnits = planetUnitsList(planets).filter((item,index) => index < 4);
+        this.setState({ params: buyAttr, units: buyUnits, paramsKey: ['C', 'D', 'E', 'F'] });
         break;
       case rent:
         let rentAttr = planetAttrList(planets).filter((item,index) => index > 3 && index < 8);
-        this.setState({ paramsKey: ['G', 'H', 'I', 'J'] })
-        this.setState({ params: rentAttr });
+        let rentUnits = planetUnitsList(planets).filter((item,index) => index > 3 && index < 8);
+        this.setState({ params: rentAttr, units: rentUnits, paramsKey: ['G', 'H', 'I', 'J'] });
         break;
       case sold:
         let soldAttr = planetAttrList(planets).filter((item,index) => index > 7 && index < 12);
-        this.setState({ paramsKey: ['K', 'L', 'M', 'N'] })
-        this.setState({ params: soldAttr });
+        let soldUnits = planetUnitsList(planets).filter((item,index) => index > 7 && index < 12);
+        this.setState({ params: soldAttr, units: soldUnits, paramsKey: ['K', 'L', 'M', 'N'] });
         break;
       case timeShare:
         let timeShareAttr = planetAttrList(planets).filter((item,index) => index > 11 && index < 16);
-        this.setState({ paramsKey: ['O', 'P', 'Q', 'R'] })
-        this.setState({ params: timeShareAttr });
+        let timeShareUnits = planetUnitsList(planets).filter((item,index) => index > 11 && index < 16);
+        this.setState({ params: timeShareAttr, units: timeShareUnits, paramsKey: ['O', 'P', 'Q', 'R'] });
         break;
       case invest:
         let investAttr = planetAttrList(planets).filter((item,index) => index > 15 && index < 19);
-        this.setState({ paramsKey: ['S', 'T', 'U'] });
-        this.setState({ params: investAttr });
+        let investUnits = planetUnitsList(planets).filter((item,index) => index > 15 && index < 19);
+        this.setState({ params: investAttr, units: investUnits, paramsKey: ['S', 'T', 'U']  });
         break;
       default: 
-        this.setState({ params: ['Mean distance from the Sun', 'Equatorial radius', 'Surface area', 'Volume'] });
-        this.setState({ paramsKey: [0,1,2,3] })
+        this.setState({ 
+          params: ['Mean distance from the Sun', 'Equatorial radius', 'Surface area', 'Volume'], 
+          paramsKey: ['C', 'D', 'E', 'F'],
+          units: ['km', 'km', 'km2', 'km3'],
+          });
         break;
     }
   }
 
   render(){
-    const { resultVis, searchState, params, paramsKey, planet } = this.state;
+    const { resultVis, searchState, params, paramsKey, planet, units } = this.state;
     return (
       <section className="landing-page">
 
@@ -106,11 +111,12 @@ class LandingPage extends React.Component<{}, landingState> {
           setPlanet={this.setPlanet}
         />
         <ResultsPage 
-          resultsProps={resultVis} 
+          resultsVis={resultVis} 
           searchState={searchState} 
           planet={planet}
           params={params}
           paramsKey={paramsKey}
+          units={units}
         />  
     
       </section>

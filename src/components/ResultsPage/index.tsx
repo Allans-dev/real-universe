@@ -4,40 +4,37 @@ import data from '../../assets/planetData.json';
 import './results-page.style.scss';
 
 interface resultsProps {
-  resultsProps: boolean,
+  resultsVis: boolean,
   searchState: string,
   planet: any,
   params: string[],
   paramsKey: any,
+  units: string[],
 }
 
-class ResultsPage extends React.Component<resultsProps, any> {
-  render() {
-    console.log(this.props);
-    const { resultsProps, planet, params, paramsKey } = this.props;
-    const resultsPageStyles = (() => resultsProps ? 'results-page' : 'no-results-page')();
-    interface Idata{
-      [key: string]: any,
-    }
+const ResultsPage: React.FC <resultsProps> = (props) => {
+  const { resultsVis, planet, params, paramsKey, units } = props;
+  const resultsPageStyles = (() => resultsVis ? 'results-page' : 'no-results-page')();
 
-    const planetsDisplay = ((data: Idata) => {
-      return paramsKey.map((item: string, index: number) => {     
-        console.log(params[index], ' : ', data[planet][item]);
-        return <div key={item}>
-            {params[index]}{data[planet][item]}
-          </div>;
-      })
-    })(data);
-    
-    
-
-    return (
-    <section className={resultsPageStyles}>
-      {planet}
-      {planetsDisplay}
-    </section>
-  );
+  interface Idata{
+    [key: string]: any,
   }
+
+  const planetsDisplay = ((data: Idata) => {
+    return paramsKey.map((item: string, index: number) => {     
+      console.log(params[index], ' : ', data[planet][item]);
+      return <div key={item}>
+          {params[index]}: {data[planet][item]} {units[index]}
+        </div>;
+    })
+  })(data);
+
+  return (
+  <section className={resultsPageStyles}>
+    {planet}
+    {planetsDisplay}
+  </section>
+);
   
 }
 
