@@ -31,10 +31,9 @@ type ParamsProps = {
 export default class SearchParams extends React.Component<ParamsProps> {
 
   render(){
-    const { searchType, params } = this.props;
+    const { params } = this.props;
     return (
       <div>
-      {searchType}
       {params}
       </div>
     );

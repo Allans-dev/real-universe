@@ -1,13 +1,3 @@
-export function api(url: string) {
-  return fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.statusText)
-      }
-      return response.text();
-    });
-}
-
 export function planetNames(data: object) {
   let arr = [];
   for (let name of Object.keys(data)) {
@@ -31,3 +21,7 @@ export function planetUnitsList(data: any) {
   }
   return arr;
 }
+
+
+
+

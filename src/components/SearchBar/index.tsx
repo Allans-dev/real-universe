@@ -2,7 +2,7 @@ import * as React from 'react';
 import Select from 'react-select';
 
 import SearchParams from './searchParams';
-import { planetNames } from './searchUtils';
+import { planetNames } from '../common/Utils';
 import planets from '../../assets/planetData.json';
 
 import './search-bar.style.scss';
@@ -21,6 +21,7 @@ interface searchProps {
   changeSearchState: any,
   changeParams: any,
   params: string[],
+  setPlanet: any,
 }
 
 const options = planetNames(planets).map((item) => {
@@ -65,9 +66,10 @@ export default class SearchBar extends React.Component<searchProps, searchState>
 
   handleSubmit = async ( e: React.FormEvent<HTMLFormElement> ): Promise<void> => {
     e.preventDefault();
-    const { show, changeSearchState } = this.props;
-    const { searchType } = this.state;
+    const { show, changeSearchState, setPlanet } = this.props;
+    const { searchType, selectedOption } = this.state;
     changeSearchState(searchType);
+    setPlanet(selectedOption)
     show();
   }
 
