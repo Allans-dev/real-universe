@@ -29,7 +29,7 @@ class LandingPage extends React.Component<{}, landingState> {
 
   state = { 
     resultVis: false,
-    searchState: 'buy',
+    searchState: 'general',
     params: ['Mean distance from the Sun', 'Equatorial radius', 'Surface area', 'Volume'],
     planet: 'Earth',
     paramsKey: ['C', 'D', 'E', 'F'],
@@ -53,37 +53,37 @@ class LandingPage extends React.Component<{}, landingState> {
   }
 
   changeSearchParams(val: string){
-    const buy: string = 'buy';
-    const rent: string = 'rent';
-    const sold: string = 'sold';
-    const timeShare: string = 'time share';
-    const invest: string = 'invest';
+    const general: string = 'general';
+    const mass: string = 'mass';
+    const orbits: string = 'orbits';
+    const temp: string = 'temp & tilt';
+    const extra: string = 'extra';
 
     switch(val) {
-      case buy: 
-        let buyAttr = planetAttrList(planets).filter((item,index) => index < 4);
-        let buyUnits = planetUnitsList(planets).filter((item,index) => index < 4);
-        this.setState({ params: buyAttr, units: buyUnits, paramsKey: ['C', 'D', 'E', 'F'] });
+      case general: 
+        let generalAttr = planetAttrList(planets).filter((item,index) => index < 4);
+        let generalUnits = planetUnitsList(planets).filter((item,index) => index < 4);
+        this.setState({ params: generalAttr, units: generalUnits, paramsKey: ['C', 'D', 'E', 'F'] });
         break;
-      case rent:
-        let rentAttr = planetAttrList(planets).filter((item,index) => index > 3 && index < 8);
-        let rentUnits = planetUnitsList(planets).filter((item,index) => index > 3 && index < 8);
-        this.setState({ params: rentAttr, units: rentUnits, paramsKey: ['G', 'H', 'I', 'J'] });
+      case mass:
+        let massAttr = planetAttrList(planets).filter((item,index) => index > 3 && index < 8);
+        let massUnits = planetUnitsList(planets).filter((item,index) => index > 3 && index < 8);
+        this.setState({ params: massAttr, units: massUnits, paramsKey: ['G', 'H', 'I', 'J'] });
         break;
-      case sold:
-        let soldAttr = planetAttrList(planets).filter((item,index) => index > 7 && index < 12);
-        let soldUnits = planetUnitsList(planets).filter((item,index) => index > 7 && index < 12);
-        this.setState({ params: soldAttr, units: soldUnits, paramsKey: ['K', 'L', 'M', 'N'] });
+      case orbits:
+        let orbitsAttr = planetAttrList(planets).filter((item,index) => index > 7 && index < 12);
+        let orbitsUnits = planetUnitsList(planets).filter((item,index) => index > 7 && index < 12);
+        this.setState({ params: orbitsAttr, units: orbitsUnits, paramsKey: ['K', 'L', 'M', 'N'] });
         break;
-      case timeShare:
-        let timeShareAttr = planetAttrList(planets).filter((item,index) => index > 11 && index < 16);
-        let timeShareUnits = planetUnitsList(planets).filter((item,index) => index > 11 && index < 16);
-        this.setState({ params: timeShareAttr, units: timeShareUnits, paramsKey: ['O', 'P', 'Q', 'R'] });
+      case temp:
+        let tempAttr = planetAttrList(planets).filter((item,index) => index > 11 && index < 16);
+        let tempUnits = planetUnitsList(planets).filter((item,index) => index > 11 && index < 16);
+        this.setState({ params: tempAttr, units: tempUnits, paramsKey: ['O', 'P', 'Q', 'R'] });
         break;
-      case invest:
-        let investAttr = planetAttrList(planets).filter((item,index) => index > 15 && index < 19);
-        let investUnits = planetUnitsList(planets).filter((item,index) => index > 15 && index < 19);
-        this.setState({ params: investAttr, units: investUnits, paramsKey: ['S', 'T', 'U']  });
+      case extra:
+        let extraAttr = planetAttrList(planets).filter((item,index) => index > 15 && index < 19);
+        let extraUnits = planetUnitsList(planets).filter((item,index) => index > 15 && index < 19);
+        this.setState({ params: extraAttr, units: extraUnits, paramsKey: ['S', 'T', 'U']  });
         break;
       default: 
         this.setState({ 

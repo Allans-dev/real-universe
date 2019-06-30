@@ -1,8 +1,12 @@
 .results-page {
   display: block;
-  border: 1px solid white;
-  background: white;
-  opacity: 0.7;
+  background: rgb(58, 58, 58);
+  position: relative;
+  z-index: -5;
+  width: 35em;
+  margin: 0 auto;
+  padding: 1.5em;
+  color: rgb(202, 202, 202)
 }
 
 .no-results-page {

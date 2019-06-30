@@ -28,15 +28,27 @@ type ParamsProps = {
   params: string[],
 }
 
-export default class SearchParams extends React.Component<ParamsProps> {
+const paramsStyle = {
+  fontSize: '0.8em',
+  paddingTop: '1em'
+};
 
-  render(){
-    const { params } = this.props;
-    return (
-      <div>
-      {params}
-      </div>
-    );
-  }
+const SearchParams: React.FC<ParamsProps> = (props) => {
+
+  const { params } = props;
+
+  const displayParams = params.map((item, index) => {
+    return (` ${item} |`)
+  })
+
+  return (
+    <section style={paramsStyle }>
+      Displays: {displayParams}
+    </section>
+  );
+
+
   
 }
+
+export default SearchParams; 

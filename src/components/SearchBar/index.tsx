@@ -28,13 +28,13 @@ const options = planetNames(planets).map((item) => {
   return {value: item, label: item};
 });
 
-const buy: string = 'buy';
-const rent: string = 'rent';
-const sold: string = 'sold';
-const timeShare: string = 'time share';
-const invest: string = 'invest';
+const general: string = 'general';
+const mass: string = 'mass';
+const orbits: string = 'orbits';
+const temp: string = 'temp & tilt';
+const extra: string = 'extra';
 
-const searchTypeArr: string[] = [buy, rent, sold, timeShare, invest];
+const searchTypeArr: string[] = [general, mass, orbits, temp, extra];
 
 export default class SearchBar extends React.Component<searchProps, searchState> {
   constructor(props: searchProps){
@@ -42,7 +42,7 @@ export default class SearchBar extends React.Component<searchProps, searchState>
 
     this.state = {
       value: '',
-      searchType: buy,
+      searchType: general,
       tabClassName: '',
       data: planets,
       selectedOption: null
@@ -99,6 +99,8 @@ export default class SearchBar extends React.Component<searchProps, searchState>
     const { selectedOption, searchType } = this.state;
     const { params } = this.props;
 
+    const selectStyles: object = { menu: (styles: object) => ({ ...styles, zIndex: 999, opacity: 1 }) };
+
     return (
       <section className="search">
         <form className="search__form" onSubmit={this.handleSubmit}>
@@ -112,6 +114,7 @@ export default class SearchBar extends React.Component<searchProps, searchState>
             onChange={this.handleChange}
             options={options}
             placeholder="find your planet..."
+            style={selectStyles}
           />
           <input 
             className="search__btn"

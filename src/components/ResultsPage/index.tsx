@@ -31,8 +31,8 @@ const ResultsPage: React.FC <resultsProps> = (props) => {
 
   return (
   <section className={resultsPageStyles}>
-    {planet}
-    {planetsDisplay}
+    <h2>{planet}</h2>
+    <p>{planetsDisplay}</p>
   </section>
 );
   
