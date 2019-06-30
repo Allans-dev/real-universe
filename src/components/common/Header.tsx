@@ -4,21 +4,11 @@ import './header.style.scss';
 
 const Header: React.FC = () => {
   
-  const handleSignUp = () => {};
-
-  const handleLogIn = () => {};
-
   return (
     <section className="header">
       <a className="home__icon" href="placeholder-home">realuniverse.com</a>
       <div className="header__tabs">
-        <a href="placeholder-buy">buy</a>
-        <a href="placeholder-rent">rent</a>
-        <a href="placeholder-sold">sold</a>
-        <a href="placeholder-time-share">time share</a>
-        <a href="placeholder-invest">invest</a>
-        <button onClick={handleSignUp}>Sign Up</button>
-        <button onClick={handleLogIn}>Log In</button>
+        <a href="https://en.wikipedia.org/wiki/List_of_gravitationally_rounded_objects_of_the_Solar_System#Planets">link to data source</a>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ReactDOM from 'react-dom';
 import Select from 'react-select';
 
 import SearchParams from './searchParams';
@@ -52,13 +53,6 @@ export default class SearchBar extends React.Component<searchProps, searchState>
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount(){
-    // const names = planetNames(planets);
-    // const atr = planetAttrList(planets);
-    // console.log(names)
-    // console.log(atr)
-  }
-
   handleChange = (selectedOption: any) => {
     this.setState({ selectedOption });
     console.log(`Option selected:`, selectedOption);
@@ -94,6 +88,23 @@ export default class SearchBar extends React.Component<searchProps, searchState>
       </label>
     });
   };
+
+  componentWillMount(){
+    document.addEventListener('mousedown', this.handleClickOutside, false)
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener('mousedown', this.handleClickOutside, false)
+  }
+
+  handleClickOutside = (event: any) => {
+    const domNode = ReactDOM.findDOMNode(this);
+    const { hide } = this.props;
+    if (!domNode || !domNode.contains(event.target)) {
+        hide();
+        this.setState({ selectedOption: null })
+    }
+  }
 
   render() {
     const { selectedOption, searchType } = this.state;
