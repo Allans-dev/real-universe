@@ -1,7 +1,20 @@
+@import "../common/Styles/mixins";
+body{
+  background-color: black;
+}
 .search {
   background-color: rgb(175, 175, 175);
   margin: 2em auto 0;
   width: 30em;
+  @include tablet-portrait-and-below {
+    width: 80%;
+    font-size: 22px;
+  }
+  @include mobile-landscape-and-below{
+    font-size: 16px;
+  }
+
+  
   padding: .8em;
   font-size: 1.5em;
 
@@ -32,6 +45,9 @@
       font-size: 1em;
       height: 1.2em;
       min-width: 25em;
+      @include tablet-portrait-and-below {
+        min-width: 20em;
+      }
       z-index: 100;
       position: relative;
     }
@@ -48,6 +64,7 @@
       font-size: 1em;
       color: #eee;
       background-color: rgb(110, 110, 110);
+      
     }
   }
 

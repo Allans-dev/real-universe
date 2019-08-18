@@ -20,7 +20,7 @@ interface searchProps {
   show: any,
   hide: any,
   changeSearchState: any,
-  changeParams: any,
+  changeParams: any, 
   params: string[],
   setPlanet: any,
 }
@@ -89,13 +89,13 @@ export default class SearchBar extends React.Component<searchProps, searchState>
     });
   };
 
-  componentWillMount(){
-    document.addEventListener('mousedown', this.handleClickOutside, false)
-  }
+  // componentWillMount(){
+  //   document.addEventListener('mousedown', this.handleClickOutside, false)
+  // }
 
-  componentWillUnmount(){
-    document.removeEventListener('mousedown', this.handleClickOutside, false)
-  }
+  // componentWillUnmount(){
+  //   document.removeEventListener('mousedown', this.handleClickOutside, false)
+  // }
 
   handleClickOutside = (event: any) => {
     const domNode = ReactDOM.findDOMNode(this);

@@ -1,4 +1,10 @@
+@import "../common/Styles/mixins.scss";
+
 .results-page {
+  @include mobile-landscape-and-below{
+    font-size: 14px;
+    width: 25em;
+  }
   display: block;
   background: rgb(58, 58, 58);
   position: relative;
@@ -6,7 +12,7 @@
   width: 35em;
   margin: 0 auto;
   padding: 1.5em;
-  color: rgb(202, 202, 202)
+  color: rgb(202, 202, 202);
 }
 
 .no-results-page {

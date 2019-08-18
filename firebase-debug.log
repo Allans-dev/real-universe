@@ -1,0 +1,26 @@
+[debug] [2019-06-30T08:56:47.877Z] ----------------------------------------------------------------------
+[debug] [2019-06-30T08:56:47.879Z] Command:       /usr/local/lib/node_modules/node/bin/node /Users/AllanCheung/.npm-global/bin/firebase use --add
+[debug] [2019-06-30T08:56:47.879Z] CLI Version:   6.8.0
+[debug] [2019-06-30T08:56:47.879Z] Platform:      darwin
+[debug] [2019-06-30T08:56:47.879Z] Node Version:  v11.2.0
+[debug] [2019-06-30T08:56:47.880Z] Time:          Sun Jun 30 2019 18:56:47 GMT+1000 (Australian Eastern Standard Time)
+[debug] [2019-06-30T08:56:47.880Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-30T08:56:47.888Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-30T08:56:47.888Z] > authorizing via signed-in user
+[debug] [2019-06-30T08:56:47.890Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+ 
+[debug] [2019-06-30T08:56:49.981Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-30T08:57:36.796Z] TypeError: Cannot read property 'short' of undefined
+    at Prompt.render (/Users/AllanCheung/.npm-global/lib/node_modules/firebase-tools/node_modules/inquirer/lib/prompts/list.js:94:69)
+    at Prompt.onSubmit (/Users/AllanCheung/.npm-global/lib/node_modules/firebase-tools/node_modules/inquirer/lib/prompts/list.js:116:8)
+    at AnonymousObserver.Rx.AnonymousObserver.AnonymousObserver.next (/Users/AllanCheung/.npm-global/lib/node_modules/firebase-tools/node_modules/rx-lite/rx.lite.js:1535:12)
+    at AnonymousObserver.Rx.internals.AbstractObserver.AbstractObserver.onNext (/Users/AllanCheung/.npm-global/lib/node_modules/firebase-tools/node_modules/rx-lite/rx.lite.js:1469:31)
+    at AnonymousObserver.tryCatcher (/Users/AllanCheung/.npm-global/lib/node_modules/firebase-tools/node_modules/rx-lite/rx.lite.js:63:31)
+    at AutoDetachObserverPrototype.next (/Users/AllanCheung/.npm-global/lib/node_modules/firebase-tools/node_modules/rx-lite/rx.lite.js:5782:51)
+    at AutoDetachObserver.Rx.internals.AbstractObserver.AbstractObserver.onNext (/Users/AllanCheung/.npm-global/lib/node_modules/firebase-tools/node_modules/rx-lite/rx.lite.js:1469:31)
+    at AnonymousObserver._onNext (/Users/AllanCheung/.npm-global/lib/node_modules/firebase-tools/node_modules/rx-lite/rx.lite.js:4234:13)
+    at AnonymousObserver.Rx.AnonymousObserver.AnonymousObserver.next (/Users/AllanCheung/.npm-global/lib/node_modules/firebase-tools/node_modules/rx-lite/rx.lite.js:1535:12)
+    at AnonymousObserver.Rx.internals.AbstractObserver.AbstractObserver.onNext (/Users/AllanCheung/.npm-global/lib/node_modules/firebase-tools/node_modules/rx-lite/rx.lite.js:1469:31)
+[error] 
+[error] Error: An unexpected error has occurred.
