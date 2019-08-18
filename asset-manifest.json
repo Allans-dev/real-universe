@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/real-universe/static/css/main.cc9d8f33.chunk.css",
-    "main.js": "/real-universe/static/js/main.dd35c39c.chunk.js",
-    "main.js.map": "/real-universe/static/js/main.dd35c39c.chunk.js.map",
+    "main.css": "/real-universe/static/css/main.2e50f1f3.chunk.css",
+    "main.js": "/real-universe/static/js/main.ac213ff1.chunk.js",
+    "main.js.map": "/real-universe/static/js/main.ac213ff1.chunk.js.map",
     "runtime~main.js": "/real-universe/static/js/runtime~main.495a0658.js",
     "runtime~main.js.map": "/real-universe/static/js/runtime~main.495a0658.js.map",
     "static/js/2.2cbba62f.chunk.js": "/real-universe/static/js/2.2cbba62f.chunk.js",
     "static/js/2.2cbba62f.chunk.js.map": "/real-universe/static/js/2.2cbba62f.chunk.js.map",
     "index.html": "/real-universe/index.html",
-    "precache-manifest.d13661c7ed8e4d61d475201ed87fea47.js": "/real-universe/precache-manifest.d13661c7ed8e4d61d475201ed87fea47.js",
+    "precache-manifest.64acf31bb272f2b6f4b123e2f4aa0b8e.js": "/real-universe/precache-manifest.64acf31bb272f2b6f4b123e2f4aa0b8e.js",
     "service-worker.js": "/real-universe/service-worker.js",
-    "static/css/main.cc9d8f33.chunk.css.map": "/real-universe/static/css/main.cc9d8f33.chunk.css.map",
+    "static/css/main.2e50f1f3.chunk.css.map": "/real-universe/static/css/main.2e50f1f3.chunk.css.map",
     "static/media/landing-page.style.scss": "/real-universe/static/media/sun-earth-shadow.b80b9c65.jpg"
   }
 }
