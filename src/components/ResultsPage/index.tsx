@@ -22,7 +22,6 @@ const ResultsPage: React.FC <resultsProps> = (props) => {
 
   const planetsDisplay = ((data: Idata) => {
     return paramsKey.map((item: string, index: number) => {     
-      console.log(params[index], ' : ', data[planet][item]);
       return <div key={item}>
           {params[index]}: {data[planet][item]} {units[index]}
         </div>;

@@ -55,7 +55,6 @@ export default class SearchBar extends React.Component<searchProps, searchState>
 
   handleChange = (selectedOption: any) => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
   }
 
   handleSubmit = async ( e: React.FormEvent<HTMLFormElement> ): Promise<void> => {
