@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2e7135c505c090c7a5f671e53b81466b",
+    "revision": "8f1703a605986d5e822a6885fa577284",
     "url": "/real-universe/index.html"
   },
   {
-    "revision": "1b971553850161bbb881",
+    "revision": "376b64d201f72f33f3f7",
     "url": "/real-universe/static/css/main.2e50f1f3.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/real-universe/static/js/2.2cbba62f.chunk.js"
   },
   {
-    "revision": "1b971553850161bbb881",
-    "url": "/real-universe/static/js/main.ac213ff1.chunk.js"
+    "revision": "376b64d201f72f33f3f7",
+    "url": "/real-universe/static/js/main.e8e3913a.chunk.js"
   },
   {
     "revision": "a358ca514ff34b347d0a",
