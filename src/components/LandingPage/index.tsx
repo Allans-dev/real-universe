@@ -8,6 +8,7 @@ import planets from '../../assets/planetData.json';
 
 import './landing-page.style.scss';
 
+
 interface landingState {
   resultVis: boolean,
   searchState: string,

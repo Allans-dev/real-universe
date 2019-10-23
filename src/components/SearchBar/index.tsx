@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
 import Select from 'react-select';
 
 import SearchParams from './searchParams';
@@ -59,11 +58,33 @@ export default class SearchBar extends React.Component<searchProps, searchState>
 
   handleSubmit = async ( e: React.FormEvent<HTMLFormElement> ): Promise<void> => {
     e.preventDefault();
-    const { show, changeSearchState, setPlanet } = this.props;
+    const { show, hide, changeSearchState, setPlanet } = this.props;
     const { searchType, selectedOption } = this.state;
+
     changeSearchState(searchType);
     setPlanet(selectedOption)
     show();
+
+    //on click outside hide results element after submit is called
+    const r = document.getElementById('results-page') as HTMLElement;
+    const hideOnClickOutside = (element: any) => {
+      const isVisible = (elem: any) => !!elem && !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+
+      const removeClickListener = () => {
+        document.removeEventListener('click', outsideClickListener);
+      };
+
+      const outsideClickListener = (event: any) => {
+        if (!element.contains(event.target) && isVisible(element)) {
+          hide();
+          removeClickListener();
+        }
+      };
+
+      document.addEventListener('click', outsideClickListener);
+    }
+    
+    hideOnClickOutside(r);
   }
 
   handleTabClick = (searchState: string, item: string) => {
@@ -87,23 +108,6 @@ export default class SearchBar extends React.Component<searchProps, searchState>
       </label>
     });
   };
-
-  // componentWillMount(){
-  //   document.addEventListener('mousedown', this.handleClickOutside, false)
-  // }
-
-  // componentWillUnmount(){
-  //   document.removeEventListener('mousedown', this.handleClickOutside, false)
-  // }
-
-  handleClickOutside = (event: any) => {
-    const domNode = ReactDOM.findDOMNode(this);
-    const { hide } = this.props;
-    if (!domNode || !domNode.contains(event.target)) {
-        hide();
-        this.setState({ selectedOption: null })
-    }
-  }
 
   render() {
     const { selectedOption, searchType } = this.state;

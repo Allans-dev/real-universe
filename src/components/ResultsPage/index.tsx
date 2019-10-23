@@ -29,7 +29,7 @@ const ResultsPage: React.FC <resultsProps> = (props) => {
   })(data);
 
   return (
-  <section className={resultsPageStyles}>
+  <section id='results-page' className={resultsPageStyles}>
     <h2>{planet}</h2>
     <div>{planetsDisplay}</div>
   </section>
