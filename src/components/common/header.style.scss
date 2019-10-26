@@ -1,3 +1,5 @@
+@import"../common/Styles/mixins.scss";
+
 .header {
   position: absolute;
   z-index: 20;
@@ -9,6 +11,14 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+  @include mobile-landscape-and-below{
+    font-size: 12px;
+    padding: 1em 0;
+  }
+  @include mobile-portrait-and-below{
+    font-size: 10px;
+    padding: 1em 0;
+  }
 
   .home__icon {
     margin: 0 3em;

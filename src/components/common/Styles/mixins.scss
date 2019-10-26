@@ -1,15 +1,12 @@
-$mq-mobile-portrait		: 370px !default;
-//$mq-mobile-landscape	: 480px !default;
-$mq-mobile-landscape	: 700px !default;
-$mq-tablet-portrait		: 935px !default;
-//$mq-tablet-portrait	: 768px !default;
-$mq-tablet-landscape	: 1150px !default;
-//$mq-tablet-landscape	: 1024px !default;
+$mq-mobile-portrait		: 320px !default;
+$mq-mobile-landscape	: 480px !default;
+$mq-tablet-portrait		: 768px !default;
+$mq-tablet-landscape	: 1024px !default;
 $mq-desktop				: 1382px !default;
 
 // Everything up to and including the mobile portrait
 @mixin mobile-portrait-and-below {
-	@media (max-width : $mq-mobile-portrait) {
+	@media only screen and (max-width : $mq-mobile-portrait) {
 		@content;
 	}
 }

@@ -1,3 +1,5 @@
+@import"../common/Styles/mixins.scss";
+
 .landing-page {
   height: 100vh;
   background-image: url('../../assets/imgs/sun-earth-shadow.jpg');
@@ -9,9 +11,15 @@
   h1 {
     margin: 0;
     text-align: center;
-    padding-top: 8em;
+    padding-top: 16em;
     font-size: 2em;
     color: #ccc;
     font-weight: 300;
+    @include mobile-landscape-and-below{
+      font-size: 1em;
+    }
+    @include mobile-portrait-and-below{
+      padding-top: 12em;
+    }
   }
 }
