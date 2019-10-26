@@ -1,6 +1,10 @@
 @import "../common/Styles/mixins.scss";
 
 .results-page {
+  @include tablet-portrait-and-below{
+    font-size: 14px;
+    width: 30em;
+  }
   @include mobile-landscape-and-below{
     font-size: 12px;
     width: 18em;
