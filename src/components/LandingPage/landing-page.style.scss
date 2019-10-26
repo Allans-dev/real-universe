@@ -18,8 +18,5 @@
     @include mobile-landscape-and-below{
       font-size: 1em;
     }
-    @include mobile-portrait-and-below{
-      padding-top: 12em;
-    }
   }
 }
