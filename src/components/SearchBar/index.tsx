@@ -45,7 +45,7 @@ export default class SearchBar extends React.Component<searchProps, searchState>
       searchType: general,
       tabClassName: '',
       data: planets,
-      selectedOption: null
+      selectedOption: null,
       };
 
     this.handleChange = this.handleChange.bind(this);
@@ -62,11 +62,10 @@ export default class SearchBar extends React.Component<searchProps, searchState>
     const { searchType, selectedOption } = this.state;
 
     changeSearchState(searchType);
-    setPlanet(selectedOption)
+    selectedOption ? setPlanet(selectedOption) : setPlanet({ value: "Earth" });
     show();
 
     //on click outside hide results element after submit is called
-    const r = document.getElementById('results-page') as HTMLElement;
     const hideOnClickOutside = (element: any) => {
       const isVisible = (elem: any) => !!elem && !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
 
@@ -84,6 +83,7 @@ export default class SearchBar extends React.Component<searchProps, searchState>
       document.addEventListener('click', outsideClickListener);
     }
     
+    const r = document.getElementById('results-page') as HTMLElement;
     hideOnClickOutside(r);
   }
 
