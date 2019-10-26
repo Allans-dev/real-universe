@@ -17,6 +17,16 @@
   margin: 0 auto;
   padding: 1.5em;
   color: rgb(202, 202, 202);
+
+  h2{
+    display: inline-block;;
+  }
+  button{
+    position: absolute;
+    opacity: 0.6;
+    right: 1em;
+    top: 1em;
+  }
 }
 
 .no-results-page {

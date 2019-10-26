@@ -118,6 +118,7 @@ class LandingPage extends React.Component<{}, landingState> {
           params={params}
           paramsKey={paramsKey}
           units={units}
+          hide={this.hideResults}
         />  
     
       </section>

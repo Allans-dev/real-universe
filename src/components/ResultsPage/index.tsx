@@ -10,10 +10,11 @@ interface resultsProps {
   params: string[],
   paramsKey: any,
   units: string[],
+  hide: any,
 }
 
 const ResultsPage: React.FC <resultsProps> = (props) => {
-  const { resultsVis, planet, params, paramsKey, units } = props;
+  const { resultsVis, planet, params, paramsKey, units, hide } = props;
   const resultsPageStyles = (() => resultsVis ? 'results-page' : 'no-results-page')();
 
   interface Idata{
@@ -29,10 +30,11 @@ const ResultsPage: React.FC <resultsProps> = (props) => {
   })(data);
 
   return (
-  <section id='results-page' className={resultsPageStyles}>
+  <article id='results-page' className={resultsPageStyles}>
     <h2>{planet}</h2>
+    <button onClick={hide}>x</button>
     <div>{planetsDisplay}</div>
-  </section>
+  </article>
 );
   
 }

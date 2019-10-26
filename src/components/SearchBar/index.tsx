@@ -58,7 +58,7 @@ export default class SearchBar extends React.Component<searchProps, searchState>
 
   handleSubmit = async ( e: React.FormEvent<HTMLFormElement> ): Promise<void> => {
     e.preventDefault();
-    const { show, hide, changeSearchState, setPlanet } = this.props;
+    const { show, changeSearchState, setPlanet } = this.props;
     const { searchType, selectedOption } = this.state;
 
     changeSearchState(searchType);
@@ -66,25 +66,23 @@ export default class SearchBar extends React.Component<searchProps, searchState>
     show();
 
     //on click outside hide results element after submit is called
-    const hideOnClickOutside = (element: any) => {
-      const isVisible = (elem: any) => !!elem && !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+    // const hideOnClickOutside = (element: any) => {
+    //   const removeClickListener = () => {
+    //     document.removeEventListener('click', outsideClickListener);
+    //   };
+    //   const outsideClickListener = (event: any) => {
+    //     if (!element.contains(event.target)) {
+    //       hide();
+    //       removeClickListener();
+    //     }
+    //   };
 
-      const removeClickListener = () => {
-        document.removeEventListener('click', outsideClickListener);
-      };
-
-      const outsideClickListener = (event: any) => {
-        if (!element.contains(event.target) && isVisible(element)) {
-          hide();
-          removeClickListener();
-        }
-      };
-
-      document.addEventListener('click', outsideClickListener);
-    }
+    //   document.addEventListener('click', outsideClickListener);
+    // }
     
-    const r = document.getElementById('results-page') as HTMLElement;
-    hideOnClickOutside(r);
+    // const r = document.getElementById ('search') as HTMLElement;
+    // const r = document.getElementById ('results-page') as HTMLElement;
+    // hideOnClickOutside(r);
   }
 
   handleTabClick = (searchState: string, item: string) => {
@@ -116,7 +114,7 @@ export default class SearchBar extends React.Component<searchProps, searchState>
     const selectStyles: object = { menu: (styles: object) => ({ ...styles, zIndex: 999, opacity: 1 }) };
 
     return (
-      <section className="search">
+      <section id="search" className="search">
         <form className="search__form" onSubmit={this.handleSubmit}>
           <div className="search__labels">
             {this.displayLabels()}
